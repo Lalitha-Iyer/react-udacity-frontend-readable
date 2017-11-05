@@ -6,25 +6,11 @@ const PostDetails = (props)=>{
   return(
     <div >
       <br/>
-      <Panel>
-            <ul>
-              <li> Body : {props.post.body} </li>
-              <li> Author:  {props.post.author} </li>
-             </ul>
+         {props.post.body}
             <Comment></Comment>
-      </Panel>
     </div>
   )
 
 }
 
 export default PostDetails
-
-
-
-
-
-
-
-
-

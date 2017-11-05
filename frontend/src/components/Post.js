@@ -1,5 +1,5 @@
 import React from 'react'
-import { Panel, ListGroup, ListGroupItem} from 'react-bootstrap/lib/'
+import { Panel, ListGroup, ListGroupItem, Badge} from 'react-bootstrap/lib/'
 import PostDetails from './PostDetails'
 
 const Post = (props)=>{
@@ -7,21 +7,16 @@ const Post = (props)=>{
   return(
     <div >
       <br/>
-      <Panel  collapsible defaultExpanded header={props.post.title}>
-          <PostDetails post={props.post}> {props.post.title}</PostDetails>
-      </Panel>
+      <div>
+        <div>
+
+        <h3>  {props.post.author}: {props.post.title} <Badge> comments:1 </Badge> </h3>
+        <PostDetails post={props.post}> {props.post.title}</PostDetails>
+        </div>
+      </div>
     </div>
   )
 
 }
 
 export default Post
-
-
-
-
-
-
-
-
-

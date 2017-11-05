@@ -5,10 +5,6 @@ import {
 
 const initialPostState = {
 
-  categories:[
-      "react",
-      "redux"
-  ],
   posts: [
     {
         "id": "8xf0y6ziyjabvozdd253nd",
@@ -38,8 +34,16 @@ const initialPostState = {
       postID:  "8xf0y6ziyjabvozdd253nd",
       comment: 'I m liking react',
       author: 'Lalitha'
+    }
+  ],
+  categories: [
+    {
+      id: 1,
+      value: "react"
     },
     {
+      id: 2,
+      value : "redux"
 
     }
   ]
