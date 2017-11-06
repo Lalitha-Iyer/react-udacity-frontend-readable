@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const PostList = (props)=>{
   console.log('Props',props)
   const listItems = props.posts.map( (post) =>
-    <ListGroupItem  key={post.id} bordered= {false}>
+    <ListGroupItem  key={post.id}>
       <Post post={post}></Post>
     </ListGroupItem>
   )
@@ -14,7 +14,7 @@ const PostList = (props)=>{
     <div >
       <br/>
         <Panel>
-          <ListGroup fill bordered= {false}>
+          <ListGroup fill>
             {listItems}
           </ListGroup>
         </Panel>

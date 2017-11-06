@@ -11,8 +11,6 @@ const App = ( props) => {
 
   let postInput;
   const addPostHandler = (evt) =>{
-    console.log('Props*fdfd**', props)
-    debugger
     props.addPost({title: postInput.value})
     evt.preventDefault()
   }

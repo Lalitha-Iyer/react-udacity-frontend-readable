@@ -1,7 +1,10 @@
 import {
   ADD_POST,
   DELETE_POST,
+  FILTER_CATEGORY
 } from '../actions'
+
+import { combineReducers } from 'redux';
 
 const initialPostState = {
 
@@ -50,8 +53,6 @@ const initialPostState = {
 }
 
 function posts (state = initialPostState, action) {
-  console.log('Action received', action.type)
-  debugger
 
   switch (action.type) {
     case ADD_POST :
@@ -59,12 +60,25 @@ function posts (state = initialPostState, action) {
         ...state,
         posts: [ ...state.posts, action.post]
       }
-      break;
+    case FILTER_CATEGORY:
+      const categoryValue = state.categories.filter((cat)=>{
+        return cat.id == action.id
+      })
+      console.log('category value', categoryValue)
+      const byCat = (post) => {
+        return post.category === this.value
+      }
+      const posts = state.posts.filter( byCat, categoryValue[0] )
+      console.log(posts)
+      return {
+        ...state,
+        posts
+      }
     default:
       return state
-      break;
   }
 
 }
+
 
 export default posts

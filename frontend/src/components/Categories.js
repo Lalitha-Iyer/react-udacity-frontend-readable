@@ -1,16 +1,16 @@
 import React from 'react'
 import { Panel, ListGroup, ListGroupItem, NavItem, Nav } from 'react-bootstrap/lib/'
 import { connect } from 'react-redux'
+import { filterByCategory } from '../actions'
 
 const Categories = (props)=>{
-  console.log(props)
   const categoryList = props.categories.map(function(element) {
-    return <NavItem eventKey={element.id} href="/home">{element.value}</NavItem>
+    return <NavItem id={element.id} href="/home" onClick={props.handleClick}>{element.value }</NavItem>
   })
   return(
     <div >
       <br/>
-      <Nav bsStyle="pills" stacked activeKey={1} >
+      <Nav bsStyle="pills" stacked>
         {
           categoryList
         }
@@ -27,7 +27,16 @@ function mapStateToProps (state){
   }
 }
 
-export default connect(mapStateToProps)(Categories)
+function mapDispatchToProps (dispatch){
+  return {
+    handleClick: (evt) => {
+      evt.preventDefault()
+      dispatch(filterByCategory(evt.target.id))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories)
 
 
 
